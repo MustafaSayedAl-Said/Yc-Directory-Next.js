@@ -8,11 +8,11 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "npm@10.5.2",
   "overrides": {
-    "react": "$react",
-    "react-dom": "$react-dom",
-    "next": "$next"
+    "react": "19.2.0-canary-23884812-20250520",
+    "react-dom": "19.2.0-canary-23884812-20250520",
+    "next": "15.4.0-canary.47"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
