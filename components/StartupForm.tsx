@@ -4,14 +4,13 @@ import React, { useState } from 'react'
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import dynamic from 'next/dynamic';
-import { PlayCircle, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { useActionState } from 'react';
 import { formSchema } from '@/lib/validation';
 import { z } from 'zod';
 import { toast } from "sonner"
 import { useRouter } from 'next/navigation';
-import { route } from 'sanity/router';
 import { createPitch } from '@/lib/actions';
 
 
@@ -91,6 +90,7 @@ const StartupForm = () => {
                         placeholder='Startup Title'
                     />
                     {errors.title && <p className='startup-form_error'>{errors.title}</p>}
+                    {state}
                 </label>
             </div>
 

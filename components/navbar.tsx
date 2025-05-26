@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import { auth, signIn, signOut } from '@/auth'
-import { form } from 'sanity/structure'
 import { FiLogOut } from 'react-icons/fi'
 import { BadgePlus } from 'lucide-react'
 

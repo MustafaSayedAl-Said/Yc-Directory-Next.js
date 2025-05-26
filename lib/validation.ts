@@ -1,4 +1,4 @@
-import { title } from "process";
+
 import { z } from "zod";
 
 export const formSchema = z.object({
@@ -7,13 +7,14 @@ export const formSchema = z.object({
     category: z.string().min(3).max(20),
     link: z.string().url().refine(async (url) => {
         try {
-            const res = await fetch(url, {method: 'HEAD'});
+            const res = await fetch(url, { method: 'HEAD' });
             const contentType = res.headers.get('content-type');
             if (contentType?.startsWith('image/')) {
                 return true;
             }
             return false;
         } catch (error) {
+            error instanceof Error && console.error("Invalid image URL:", error.message);
             return false;
         }
     }),

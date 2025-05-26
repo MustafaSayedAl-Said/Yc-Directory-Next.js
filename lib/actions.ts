@@ -4,9 +4,9 @@ import { writeClient } from "@/sanity/lib/write-client";
 import { parseServerActionResponse } from "./utils";
 import { auth } from "@/auth";
 
-var slugify = require('slugify')
+import slugify from "slugify";
 
-export const createPitch = async (state: any, form: FormData, pitch: string) => {
+export const createPitch = async (state: unknown, form: FormData, pitch: string) => {
     const session = await auth();
 
     if (!session)
