@@ -49,7 +49,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
                         </Link>
                         <p className='category-tag'>{post.category}</p>
                     </div>
-                    <h3 className='text-30-bold'>Pitch Details</h3>
+                    <h3 className='text-30-bold'>ピッチの詳細</h3>
                     {
                         parsedContent ? (
                             <article
@@ -57,7 +57,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
                                 dangerouslySetInnerHTML={{ __html: parsedContent }}
                             />
                         ) : (
-                            <p className='text-16-medium override-black-300'>No pitch details available</p>
+                            <p className='text-16-medium override-black-300'>ピッチの詳細は不明です</p>
                         )
                     }
                 </div>

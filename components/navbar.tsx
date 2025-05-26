@@ -19,7 +19,7 @@ const navbar = async () => {
                     {session && session?.user ? (
                         <div className="flex items-center gap-5">
                             <Link href="/startup/create">
-                                <span className='max-sm:hidden'>Create</span>
+                                <span className='max-sm:hidden'>作成</span>
                                 <BadgePlus className="size-6 sm:hidden" />
                             </Link>
                             <form action={async () => {
@@ -27,7 +27,7 @@ const navbar = async () => {
                                 await signOut({ redirectTo: '/' })
                             }}>
                                 <button type='submit'>
-                                    <span className='max-sm:hidden'>Logout</span>
+                                    <span className='max-sm:hidden'>ログアウト</span>
                                     <FiLogOut className="size-6 sm:hidden text-red-500" />
                                 </button>
                             </form>
@@ -42,7 +42,7 @@ const navbar = async () => {
                                 await signIn('github')
                             }}>
                                 <button type='submit'>
-                                    Login
+                                    ログイン
                                 </button>
                             </form>
                         )}

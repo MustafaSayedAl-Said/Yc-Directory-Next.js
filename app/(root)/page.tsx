@@ -28,10 +28,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
   return (
     <div>
       <section className="pink_container pattern">
-        <h1 className="heading">Pitch Your Startup, <br /> Connect with Entrepreneuers</h1>
+        <h1 className="heading">スタートアップを売り込む, <br /> 起業家とつながる</h1>
 
         <p className="sub-heading !max-w-3xl">
-          Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions.
+          アイデアを提出し、ピッチに投票し、バーチャルコンテストで注目を集めましょう
         </p>
         <SearchForm query={query} />
       </section>
@@ -45,7 +45,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
           {posts?.length > 0 ? (posts.map((post: StartupTypeCard, index: number) => (
             <StartupCard key={post?._id} post={post} />
           ))) : (
-            <p className="no-results">No Startups found</p>
+            <p className="no-results">スタートアップが見つかりません</p>
           )}
         </ul>
 

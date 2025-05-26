@@ -65,7 +65,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
                 </Link>
                 <Button className='startup-card_btn' asChild>
                     <Link href={`/startup/${_id}`}>
-                        Details
+                        詳細
                     </Link>
                 </Button>
             </div>

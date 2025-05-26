@@ -40,8 +40,8 @@ const StartupForm = () => {
             const result = await createPitch(prevState, formData, pitch);
 
             if (result.status == 'SUCCESS') {
-                toast.success("Startup submitted successfully", {
-                    description: "Your startup has been submitted successfully.",
+                toast.success("スタートアップが正常に作成されました。", {
+                    description: "スタートアップが作成され、プラットフォーム上で公開されました。",
                 });
                 router.push(`/startup/${result._id}`);
             }
@@ -51,8 +51,8 @@ const StartupForm = () => {
                 const fieldErrors = error.flatten().fieldErrors;
                 setErrors(fieldErrors as unknown as Record<string, string>);
 
-                toast.error("Validation error", {
-                    description: "Please check the form fields.",
+                toast.error("検証エラー", {
+                    description: "すべてのフィールドが正しく入力されていることを確認してください。",
                     // style: {
                     //     backgroundColor: "#9a0200", // red
                     //     color: "white",
@@ -61,8 +61,8 @@ const StartupForm = () => {
 
                 return { ...prevState, error: "Validation error", status: "ERROR" };
             } else {
-                toast.error("Error", {
-                    description: "An unexpected error has occured.",
+                toast.error("サーバーエラー", {
+                    description: "リクエストの処理中にエラーが発生しました。しばらくしてからもう一度お試しください。",
                     // style: {
                     //     backgroundColor: "#9a0200", // red
                     //     color: "white",
@@ -88,7 +88,7 @@ const StartupForm = () => {
                         name='title'
                         className='startup-form_input'
                         required
-                        placeholder='Startup Title'
+                        placeholder='スタートアップタイトル'
                     />
                     {errors.title && <p className='startup-form_error'>{errors.title}</p>}
                 </label>
@@ -101,7 +101,7 @@ const StartupForm = () => {
                         name='description'
                         className='startup-form_textarea'
                         required
-                        placeholder='Startup Descritption'
+                        placeholder='スタートアップの説明'
                     />
                     {errors.description && <p className='startup-form_error'>{errors.description}</p>}
                 </label>
@@ -114,7 +114,7 @@ const StartupForm = () => {
                         name='category'
                         className='startup-form_input'
                         required
-                        placeholder='Startup Category (Tech, Health, Education ...)'
+                        placeholder='スタートアップ部門（テクノロジー、健康、教育など'
                     />
                     {errors.category && <p className='startup-form_error'>{errors.category}</p>}
                 </label>
@@ -145,7 +145,7 @@ const StartupForm = () => {
                         style={{ borderRadius: 20, overflow: "hidden" }}
                         textareaProps={{
                             placeholder:
-                                "Briefly describe your startup, what problem does it solve, and why it's unique.",
+                                "あなたのスタートアップについて、それがどんな問題を解決するのか、そしてそれがなぜユニークなのかを簡単に説明してください。",
                         }}
                         previewOptions={{ disallowedElements: ['style'], }}
                     />

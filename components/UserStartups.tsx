@@ -11,7 +11,7 @@ const UserStartups = async ({ id }: { id: string }) => {
             {startups.length > 0 ? (startups.map((startup: StartupTypeCard) => (
                 <StartupCard key={startup._id} post={startup} />
             ))) : (
-                <p className="no-result">No posts yet</p>
+                <p className="no-result">まだ投稿はありません</p>
             )}
         </div>
     )
