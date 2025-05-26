@@ -1,0 +1,64 @@
+# render.yaml
+
+services:
+  - type: web # This specifies it's a web service (accessible via HTTP/HTTPS)
+    name: your-nextjs-app-name # Give your service a unique, descriptive name
+    env: node # Specify the environment runtime (Node.js for Next.js)
+    plan: starter # Choose your plan (starter, standard, pro, etc.) based on your needs
+
+    # rootDir: ./ # Optional: If your Next.js project is in the root of your repository (most common)
+    # rootDir: ./frontend # Optional: If your Next.js app is in a subdirectory (e.g., in a monorepo)
+
+    # Build command: Installs dependencies and builds the Next.js application for production
+    # This assumes your package.json has a "build" script like "next build"
+    buildCommand: npm install && npm run build
+
+    # Start command: Runs the Next.js application in production mode
+    # This assumes your package.json has a "start" script like "next start"
+    startCommand: npm start
+
+    # Environment variables
+    envVars:
+      - key: NODE_ENV
+        value: production # Always set to production for deployment
+
+      # REQUIRED for NextAuth.js (Auth.js) if you are using it
+      # Render can generate a secure random value for you
+      # IMPORTANT: For production, consider generating this yourself and adding it manually
+      # or using Render's secret files feature for better control.
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+
+      # Example: Database connection string (adjust to your actual database URL)
+      # If you're using a Render Database, you can link it here
+      # - key: DATABASE_URL
+      #   value: postgres://user:password@host:port/database
+
+      # Add any other environment variables your application needs (e.g., API keys, external service URLs)
+      # Make sure to include all process.env.* variables used in your server-side code (getServerSideProps, API routes, middleware)
+      # - key: MY_API_KEY
+      #   value: your_actual_api_key_value
+      # - key: NEXT_PUBLIC_ANALYTICS_ID # Example of a public variable (automatically picked up by Next.js)
+      #   value: UA-XXXXXXXXX-Y
+
+    # Optional: Disks for persistent storage (rarely needed for standard Next.js apps)
+    # A disk might be useful if you need to persist uploaded files or a shared cache
+    # disk:
+    #   name: nextjs-cache-disk
+    #   mountPath: /.next/cache # Example mount path, adjust as needed
+    #   sizeGB: 1
+
+    # Optional: Health Check Path (improves reliability)
+    # Render will ping this path to determine if your service is healthy
+    # healthCheckPath: /api/health # If you have a health check API route
+    # healthCheckPath: / # Or just the root if your root page loads quickly
+
+    # Optional: Auto-deploy on Git pushes (default is true)
+    # autoDeploy: true
+
+    # Optional: Build filter for monorepos with multiple services
+    # This tells Render to only rebuild if files within specific paths change
+    # buildFilter:
+    #   paths:
+    #     - packages/web/** # Only build if files in packages/web change
+    #     - shared-lib/** # Or files in a shared libraryr
