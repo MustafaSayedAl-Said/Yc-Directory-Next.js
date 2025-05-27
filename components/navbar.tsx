@@ -4,6 +4,7 @@ import React from 'react'
 import { auth, signIn, signOut } from '@/auth'
 import { FiLogOut } from 'react-icons/fi'
 import { BadgePlus } from 'lucide-react'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const navbar = async () => {
     const session = await auth()
@@ -46,6 +47,7 @@ const navbar = async () => {
                             </form>
                         )}
                 </div>
+                <LanguageSwitcher />
             </nav>
         </div>
     )
