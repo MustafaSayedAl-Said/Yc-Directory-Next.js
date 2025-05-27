@@ -1,16 +1,18 @@
 import 'server-only'
 
-type Locale = 'en-US' | 'ja-JP';
+type Locale = 'en-US' | 'ja-JP' | '';
 
 const dictionaries = async (locale: Locale): Promise<Record<string, string>> => {
-  switch (locale) {
-    case 'en-US':
-      return (await import('./dictionaries/en.json')).default;
-    case 'ja-JP':
-      return (await import('./dictionaries/ja.json')).default;
-    default:
-      throw new Error(`Unknown locale: ${locale}`);
-  }
+    switch (locale) {
+        case 'en-US':
+            return (await import('./dictionaries/en.json')).default;
+        case 'ja-JP':
+            return (await import('./dictionaries/ja.json')).default;
+        case '':
+            return (await import('./dictionaries/en.json')).default;
+        default:
+            throw new Error(`Unknown locale: ${locale}`);
+    }
 };
 
 
