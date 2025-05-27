@@ -1,7 +1,0 @@
-{
-  "build": {
-    "env": {
-      "VERCEL_PACKAGE_MANAGER": "npm"
-    }
-  }
-}
